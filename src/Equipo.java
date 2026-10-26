@@ -12,7 +12,7 @@ public Equipo(String nameEquipo, int capacidad) {
    this.plantilla=new Jugador[capacidad];
 }
 public Jugador buscarJugadorPoId(String idBuscado) {
-   for (Jugador != null && Jugador.getId() != null && Jugador.getId().equals(idBuscado)) {
+   for (Jugador != null && Jugador.getId() != null && Jugador.getId().equals(idBuscado)) {.
 
    }
 }
