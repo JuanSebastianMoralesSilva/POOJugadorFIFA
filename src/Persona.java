@@ -4,7 +4,7 @@ public class Persona {
     private String id ;
     public boolean is_alive = true;
 
-    public static String getId() {
+    public String getId() {
         return id;
     }
 
