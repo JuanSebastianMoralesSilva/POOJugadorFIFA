@@ -7,12 +7,12 @@ public class Main {
         Scanner lector = new Scanner(System.in);
         ArrayList<Equipo> listaEquipos = cargarEquiposReales();
 
-        Equipo equipoActual = listaEquipos.get(0); // Por defecto arranca con Real Madrid
+        Equipo equipoActual = listaEquipos.get(0);
         int opcion;
 
         do {
             System.out.println("\n==========================================");
-            System.out.println("   FUTBOL MANAGER - EQUIPO ACTUAL: " + equipoActual.getNombreEquipo().toUpperCase());
+            System.out.println(" CRUD FIFAS - EQUIPO ACTUAL: " + equipoActual.getNombreEquipo().toUpperCase());
             System.out.println("==========================================");
             System.out.println("1. Cambiar de Equipo");
             System.out.println("2. ReadAllCSV (Ver Plantilla y Técnico)");
@@ -23,7 +23,7 @@ public class Main {
             System.out.println("7. Salir");
             System.out.print("Elija una opción: ");
             opcion = lector.nextInt();
-            lector.nextLine(); // Limpiar buffer
+            lector.nextLine();
 
             switch (opcion) {
                 case 1:
