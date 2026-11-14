@@ -17,13 +17,14 @@ public class Main {
             System.out.println("1. Cambiar de Equipo");
             System.out.println("2. ReadAllCSV (Ver Plantilla y Técnico)");
             System.out.println("3. ReadOneCSV (Buscar Jugador por ID)");
-            System.out.println("4. SaveCSV (Agregar Jugador)");
-            System.out.println("5. Update (Actualizar Jugador)");
-            System.out.println("6. Delete (Borrar Jugador)");
-            System.out.println("7. Salir");
+            System.out.println("4. SaveCSV (Agregar Jugador al equipo actual)");
+            System.out.println("5. SaveCSV Equipo (Crear y agregar un Nuevo Equipo)"); // <--- NUEVA OPCIÓN
+            System.out.println("6. Update (Actualizar Jugador)");
+            System.out.println("7. Delete (Borrar Jugador)");
+            System.out.println("8. Salir");
             System.out.print("Elija una opción: ");
             opcion = lector.nextInt();
-            lector.nextLine(); // Limpiar buffer
+            lector.nextLine();
 
             switch (opcion) {
                 case 1:
@@ -81,6 +82,29 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.println("\n--- REGISTRAR NUEVO EQUIPO (SaveCSV Equipo) ---");
+                    System.out.print("Ingrese el nombre del nuevo equipo: ");
+                    String nombreNuevoEquipo = lector.nextLine();
+
+                    System.out.print("Nombre del director técnico: ");
+                    String nombreTec = lector.nextLine();
+                    System.out.print("ID del técnico: ");
+                    String idTec = lector.nextLine();
+                    System.out.print("País del técnico: ");
+                    String paisTec = lector.nextLine();
+
+                    Equipo nuevoEquipo = new Equipo(nombreNuevoEquipo);
+                    Tecnico tecnicoNuevo = new Tecnico(nombreTec, idTec, nombreNuevoEquipo, paisTec);
+                    nuevoEquipo.setTecnicoEquipo(tecnicoNuevo);
+
+                    listaEquipos.add(nuevoEquipo);
+
+                    equipoActual = nuevoEquipo;
+
+                    System.out.println("¡Equipo '" + nombreNuevoEquipo + "' creado exitosamente y seleccionado como actual!");
+                    break;
+
+                case 6:
                     System.out.print("Ingrese el ID del jugador a actualizar: ");
                     String idAct = lector.nextLine();
                     System.out.print("Nuevo nombre: ");
@@ -96,7 +120,7 @@ public class Main {
                     }
                     break;
 
-                case 6:
+                case 7:
                     System.out.print("Ingrese el ID del jugador a eliminar (Delete): ");
                     String idDel = lector.nextLine();
                     if (equipoActual.eliminarJugador(idDel)) {
@@ -106,7 +130,7 @@ public class Main {
                     }
                     break;
 
-                case 7:
+                case 8:
                     System.out.println("Saliendo del sistema...");
                     break;
 
